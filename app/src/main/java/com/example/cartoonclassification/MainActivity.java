@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private MappedByteBuffer loadmodelfile(Activity activity) throws IOException {
-        AssetFileDescriptor fileDescriptor=activity.getAssets().openFd("cartoon_model.tflite");
+        AssetFileDescriptor fileDescriptor=activity.getAssets().openFd("model.tflite");
         FileInputStream inputStream=new FileInputStream(fileDescriptor.getFileDescriptor());
         FileChannel fileChannel=inputStream.getChannel();
         long startoffset = fileDescriptor.getStartOffset();
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
     private void showresult(){
 
         try{
-            labels = FileUtil.loadLabels(MainActivity.this,"cartoon_labels.txt");
+            labels = FileUtil.loadLabels(MainActivity.this,"labels.txt");
         }catch (Exception e){
             e.printStackTrace();
         }
